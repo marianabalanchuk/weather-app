@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="weatherstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100;16..144,200;16..144,300;16..144,400;16..144,500;16..144,600;16..144,700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/95d865a025.js" crossorigin="anonymous"></script>
+    <title>Weather App</title>
+
+</head>
+
+<body>
+    <div class="container card">
+        <div class="card-body">
+
+            <form class="input-group mb-3" id="search-form">
+
+                <input type="text" id="search-city" class="form-control" placeholder="Enter your city"
+                    aria-label="Enter your city" aria-describedby="button-addon2">
+                <button class="btn btn-primary location-button" id="gps-location" type="button"><i
+                        class="fa-solid fa-location-dot"></i></button>
+                <input class="btn btn-primary" type="submit" id="button-addon2" value="Search"></input>
+
+            </form>
+
+
+            <h1 class="city" id="city">Kharkiv, Ukraine</h1>
+            <p class="date-time">
+                <span id="date"> Sunday, Oct 17</span>
+                <br>
+                <span id="time"> 20:50</span>
+            </p>
+
+            <div class="current">
+                <div class="row">
+                    <div class="col-sm-3 current-temp" id="current-temp"> 12 </div>
+
+                    <div class="units col-sm-2">
+                        <a href="#" class="celsius-link">°C</a> |
+                        <a href="#" class="fahrenheit-link">°F</a>
+                    </div>
+
+
+                    <div class="col-sm-7">
+                        <ol class="current-weather">
+                            <li class="conditions">
+                                <i class="fa-solid fa-cloud list-icon"></i>
+                                <span id="conditions">Partly Cloudly</span>
+                            </li>
+                            <li class="wind">
+                                <i class="fa-solid fa-wind list-icon"></i>
+                                <span id="wind"> 13</span> m/s
+                            </li>
+                            <li class="humidity">
+                                <i class=" fa-solid fa-umbrella list-icon"></i>
+                                <span id="humidity"> 13</span>%
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 week-forecast">
+                    <div class="card text-center">
+                        <div class="card-header">Monday</div>
+                        <img src="images/sun-light-rain.svg" class="card-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">11° | 7°</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 week-forecast">
+                    <div class="card text-center">
+                        <div class="card-header">Tuesday</div>
+                        <img src="images/light-rain.svg" class="card-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">12° | 5°</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 week-forecast">
+                    <div class="card text-center">
+                        <div class="card-header">Wednesday</div>
+                        <img src="images/strong-rain.svg" class="card-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">11° | 10°</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 week-forecast">
+                    <div class="card text-center">
+                        <div class="card-header">Thursday</div>
+                        <img src="images/drizzle.svg" class="card-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">11° | 9°</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 week-forecast">
+                    <div class="card text-center">
+                        <div class="card-header">Friday</div>
+                        <img src="images/sun-cloud.svg" class="card-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">12° | 9°</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <p class="author-info">This page was created by Mariana Balanchuk</p>
+        </div>
+    </div>
+    <script src="weather.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+</body>
+
+</html>

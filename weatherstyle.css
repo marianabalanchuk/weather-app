@@ -1,0 +1,101 @@
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.current-temp {
+  font-size: 75px;
+  font-weight: bold;
+  text-align: right;
+}
+
+p {
+  font-size: 25px;
+}
+
+.container {
+  margin: 15px auto;
+  padding: 20px 60px;
+  font-family: "Montagu Slab", serif;
+  background-image: url(images/background-clouds.jpg);
+  color: white;
+}
+
+.card-img {
+  width: 170px;
+  display: block;
+  margin: 0 auto;
+}
+.card-header,
+.card-text {
+  font-weight: bold;
+  color: black;
+}
+.card-header {
+  font-size: 20px;
+}
+.card-text {
+  font-size: 18px;
+}
+.current {
+  padding: 15px;
+  margin: 10px;
+}
+
+.current-weather {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.conditions {
+  text-transform: capitalize;
+}
+
+.input-group {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.week-forecast {
+  width: 220px;
+  margin: 0 auto;
+}
+.author-info {
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-style: italic;
+  padding: 10px 0;
+}
+.list-icon {
+  width: 25px;
+  color: #ffffff;
+}
+
+.celsius-link,
+.fahrenheit-link,
+.units {
+  color: #ffffff;
+  font-size: 30px;
+  text-decoration: none;
+  vertical-align: text-top;
+  font-weight: bold;
+}
+
+.celsius-link:hover,
+.fahrenheit-link:hover {
+  color: #ffffff;
+  font-size: 35px;
+}
+
+@media screen and (max-width: 450px) {
+  h1 {
+    font-size: 30px;
+  }
+  .current-temp {
+    font-size: 50px;
+    text-align: center;
+  }
+  .units {
+    text-align: center;
+  }
+}
