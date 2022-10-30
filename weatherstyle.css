@@ -66,6 +66,14 @@ p {
   font-style: italic;
   padding: 10px 0;
 }
+
+.github-link {
+  color: #ffffff;
+}
+.github-link:hover {
+  color: #ffffff;
+}
+
 .list-icon {
   width: 25px;
   color: #ffffff;
