@@ -37,8 +37,8 @@ p {
 .card-text {
   font-size: 16px;
 }
-.current {
-  padding: 15px;
+.current-block {
+  padding: 30px;
   margin: 10px;
 }
 
