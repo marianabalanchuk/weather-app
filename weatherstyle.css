@@ -1,28 +1,28 @@
 h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
 }
 
 .current-temp {
-  font-size: 75px;
+  font-size: 70px;
   font-weight: bold;
   text-align: right;
 }
 
 p {
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .container {
   margin: 15px auto;
-  padding: 20px 60px;
+  padding: 20px 150px;
   font-family: "Montagu Slab", serif;
   background-image: url(images/background-clouds.jpg);
   color: white;
 }
 
 .card-img {
-  width: 170px;
+  width: 150px;
   display: block;
   margin: 0 auto;
 }
@@ -32,10 +32,10 @@ p {
   color: black;
 }
 .card-header {
-  font-size: 20px;
+  font-size: 18px;
 }
 .card-text {
-  font-size: 18px;
+  font-size: 16px;
 }
 .current {
   padding: 15px;
@@ -44,7 +44,7 @@ p {
 
 .current-weather {
   list-style-type: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .conditions {
@@ -52,12 +52,12 @@ p {
 }
 
 .input-group {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
 .week-forecast {
-  width: 220px;
+  width: 200px;
   margin: 0 auto;
 }
 .author-info {
@@ -83,7 +83,7 @@ p {
 .fahrenheit-link,
 .units {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 26px;
   text-decoration: none;
   vertical-align: text-top;
   font-weight: bold;
@@ -92,7 +92,7 @@ p {
 .celsius-link:hover,
 .fahrenheit-link:hover {
   color: #ffffff;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 @media screen and (max-width: 450px) {
