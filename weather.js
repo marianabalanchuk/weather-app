@@ -90,11 +90,15 @@ function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
   currentTemperature.innerHTML = Math.round(celciusTemperature);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 let apiKey = "b3eab6a64o8ab3a5f894296f5209at9d";

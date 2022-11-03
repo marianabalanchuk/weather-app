@@ -89,7 +89,7 @@ p {
 .fahrenheit-link,
 .units {
   color: #ffffff;
-  font-size: 26px;
+  font-size: 20px;
   text-decoration: none;
   vertical-align: text-top;
   font-weight: bold;
@@ -98,7 +98,12 @@ p {
 .celsius-link:hover,
 .fahrenheit-link:hover {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 32px;
+  cursor: default;
+}
+
+.active {
+  font-size: 32px;
 }
 
 @media screen and (max-width: 450px) {
