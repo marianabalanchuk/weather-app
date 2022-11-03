@@ -79,10 +79,22 @@ function updateHTML(response) {
   currentTemperature.innerHTML = `${Math.round(
     response.data.temperature.current
   )}`;
+  celciusTemperature = response.data.temperature.current;
   currentCity.innerHTML = `${response.data.city}, ${response.data.country}`;
   currentConditions.innerHTML = response.data.condition.description;
   currentWind.innerHTML = `${Math.round(response.data.wind.speed)}`;
   currentHumidity.innerHTML = response.data.temperature.humidity;
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  currentTemperature.innerHTML = Math.round(celciusTemperature);
 }
 
 let apiKey = "b3eab6a64o8ab3a5f894296f5209at9d";
@@ -99,3 +111,11 @@ let gpsLocation = document.querySelector("#gps-location");
 gpsLocation.addEventListener("click", getPosition);
 
 navigator.geolocation.getCurrentPosition(getCurrentLocation);
+
+let celciusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
