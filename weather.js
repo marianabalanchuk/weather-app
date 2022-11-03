@@ -60,7 +60,6 @@ function getSearchLocation(event) {
   let searchCity = document.querySelector("#search-city").value;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchCity}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(updateHTML);
-  console.log(axios.get(`${apiUrl}`));
 }
 
 function getPosition(event) {
@@ -77,7 +76,6 @@ function getCurrentLocation(position) {
 }
 
 function updateHTML(response) {
-  console.log(response.data);
   currentTemperature.innerHTML = `${Math.round(
     response.data.temperature.current
   )}`;
