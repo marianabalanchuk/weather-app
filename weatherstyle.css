@@ -50,6 +50,7 @@ p {
 .current-weather {
   list-style-type: none;
   font-size: 18px;
+  padding-left: 0;
 }
 
 .conditions {
