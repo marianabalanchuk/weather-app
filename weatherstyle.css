@@ -3,31 +3,31 @@
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 38px;
   font-weight: bold;
 }
 
 .current-temp {
-  font-size: 80px;
+  font-size: 60px;
   font-weight: bold;
   text-align: right;
 }
 
 p {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .container {
-  margin: 15px auto;
-  padding: 20px 50px;
-  max-width: 1200px;
+  margin: 5px auto;
+  padding: 10px 50px;
+  max-width: 1000px;
   font-family: "Montagu Slab", serif;
   background-image: url(images/background-clouds.jpg);
   color: white;
 }
 
 .card-img {
-  width: 150px;
+  width: 125px;
   display: block;
   margin: 0 auto;
 }
@@ -38,18 +38,22 @@ p {
 }
 .card-header {
   font-size: 18px;
+  padding: 4px 8px;
 }
 .card-text {
   font-size: 16px;
 }
+.card-body {
+  padding: 8px;
+}
 .current-block {
   padding: 30px;
-  margin: 10px;
+  margin: 15px;
 }
 
 .current-weather {
   list-style-type: none;
-  font-size: 18px;
+  font-size: 16px;
   padding-left: 0;
 }
 
@@ -63,14 +67,15 @@ p {
 }
 
 .week-forecast {
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
+  padding: 0;
 }
 .author-info {
   font-size: 12px;
   letter-spacing: 1px;
   font-style: italic;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .github-link {
@@ -89,7 +94,7 @@ p {
 .fahrenheit-link,
 .units {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 26px;
   text-decoration: none;
   vertical-align: text-top;
   font-weight: bold;

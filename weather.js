@@ -70,7 +70,6 @@ function getPosition(event) {
 function getCurrentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  console.log(lat, lon);
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(updateHTML);
 }
@@ -107,6 +106,7 @@ let currentConditions = document.querySelector("#conditions");
 let currentWind = document.querySelector("#wind");
 let currentHumidity = document.querySelector("#humidity");
 let currentTemperature = document.querySelector("#current-temp");
+let celciusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSearchLocation);
@@ -115,8 +115,6 @@ let gpsLocation = document.querySelector("#gps-location");
 gpsLocation.addEventListener("click", getPosition);
 
 navigator.geolocation.getCurrentPosition(getCurrentLocation);
-
-let celciusTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
