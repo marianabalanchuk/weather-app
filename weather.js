@@ -58,8 +58,9 @@ currentTime.innerHTML = `${hour}:${minutes}`;
 function getSearchLocation(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#search-city").value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchCity}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(updateHTML);
+  console.log(axios.get(`${apiUrl}`));
 }
 
 function getPosition(event) {
@@ -70,20 +71,23 @@ function getPosition(event) {
 function getCurrentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  console.log(lat, lon);
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(updateHTML);
 }
 
 function updateHTML(response) {
   console.log(response.data);
-  currentTemperature.innerHTML = `${Math.round(response.data.main.temp)}`;
-  currentCity.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  currentConditions.innerHTML = response.data.weather[0].description;
+  currentTemperature.innerHTML = `${Math.round(
+    response.data.temperature.current
+  )}`;
+  currentCity.innerHTML = `${response.data.city}, ${response.data.country}`;
+  currentConditions.innerHTML = response.data.condition.description;
   currentWind.innerHTML = `${Math.round(response.data.wind.speed)}`;
-  currentHumidity.innerHTML = response.data.main.humidity;
+  currentHumidity.innerHTML = response.data.temperature.humidity;
 }
 
-let apiKey = "7a00a4fb22b18bae5dbea39280ad220a";
+let apiKey = "b3eab6a64o8ab3a5f894296f5209at9d";
 let currentCity = document.querySelector("#city");
 let currentConditions = document.querySelector("#conditions");
 let currentWind = document.querySelector("#wind");
