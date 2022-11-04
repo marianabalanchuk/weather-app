@@ -55,23 +55,27 @@ currentTime.innerHTML = `${hour}:${minutes}`;
 
 // Calculating Date and Time
 
+function getPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getCurrentLocation);
+}
+
 function getSearchLocation(event) {
   event.preventDefault();
   let searchCity = document.querySelector("#search-city").value;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchCity}&key=${apiKey}&units=metric`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?query=${searchCity}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(updateHTML);
-}
-
-function getPosition(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getCurrentLocation);
+  axios.get(`${apiUrlForecast}`).then(displayForecast);
 }
 
 function getCurrentLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  let apiUrlForecast = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(updateHTML);
+  axios.get(`${apiUrlForecast}`).then(displayForecast);
 }
 
 function updateHTML(response) {
@@ -85,7 +89,6 @@ function updateHTML(response) {
   currentHumidity.innerHTML = response.data.temperature.humidity;
 
   changeBackground(response.data.condition.icon);
-  displayForecast();
 }
 
 function displayFahrenheitTemperature(event) {
@@ -103,7 +106,8 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = document.querySelector("#weather-forecast");
 
   let forecastHTML = `<div class="row">`;
