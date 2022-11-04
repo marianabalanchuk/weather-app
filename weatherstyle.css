@@ -22,9 +22,8 @@ p {
   padding: 10px 50px;
   max-width: 1000px;
   font-family: "Montagu Slab", serif;
-  background-image: url(images/shower-rain.jpg);
   background-size: cover;
-  color: white;
+  color: #00204a;
 }
 
 .card-img {
@@ -35,7 +34,7 @@ p {
 .card-header,
 .card-text {
   font-weight: bold;
-  color: black;
+  color: #00204a;
 }
 .card-header {
   font-size: 18px;
@@ -50,6 +49,8 @@ p {
 .current-block {
   padding: 30px;
   margin: 15px;
+  background-color: rgba(247, 247, 247, 0.4);
+  border-radius: 0.375rem;
 }
 
 .current-weather {
@@ -67,6 +68,16 @@ p {
   margin: 0 auto;
 }
 
+.btn-primary {
+  background-color: #00204a;
+  border-color: #00204a;
+}
+
+.btn-primary:hover {
+  border-color: #002e6b;
+  background-color: #002e6b;
+}
+
 .week-forecast {
   width: 150px;
   margin: 0 auto;
@@ -80,21 +91,21 @@ p {
 }
 
 .github-link {
-  color: #ffffff;
+  color: #00204a;
 }
 .github-link:hover {
-  color: #ffffff;
+  color: #00204a;
 }
 
 .list-icon {
   width: 25px;
-  color: #ffffff;
+  color: #00204a;
 }
 
 .celsius-link,
 .fahrenheit-link,
 .units {
-  color: #ffffff;
+  color: #00204a;
   font-size: 26px;
   text-decoration: none;
   vertical-align: text-top;
@@ -103,7 +114,7 @@ p {
 
 .celsius-link:hover,
 .fahrenheit-link:hover {
-  color: #ffffff;
+  color: #00204a;
   font-size: 32px;
   cursor: default;
 }
