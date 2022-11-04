@@ -85,6 +85,7 @@ function updateHTML(response) {
   currentHumidity.innerHTML = response.data.temperature.humidity;
 
   changeBackground(response.data.condition.icon);
+  displayForecast();
 }
 
 function displayFahrenheitTemperature(event) {
@@ -100,6 +101,33 @@ function displayCelsiusTemperature(event) {
   currentTemperature.innerHTML = Math.round(celciusTemperature);
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
+}
+
+function displayForecast() {
+  let forecast = document.querySelector("#weather-forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                <div class="col-sm-2 week-forecast">
+                    <div class="card text-center">
+                        <div class="card-header">${day}</div>
+                        <img src="images/sun-light-rain.svg" class="card-img" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">11° | 7°</p>
+                        </div>
+                    </div>
+                </div>
+
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
 }
 
 function changeBackground(backgroundConditions) {
