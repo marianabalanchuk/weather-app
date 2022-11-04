@@ -83,6 +83,9 @@ function updateHTML(response) {
   currentConditions.innerHTML = response.data.condition.description;
   currentWind.innerHTML = `${Math.round(response.data.wind.speed)}`;
   currentHumidity.innerHTML = response.data.temperature.humidity;
+
+  changeBackground(response.data.condition.icon);
+  console.log(response.data.condition.icon);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -121,3 +124,63 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+function changeBackground(backgroundConditions) {
+  let background = document.querySelector("#background");
+  console.log("helo");
+
+  if (
+    backgroundConditions === "clear-sky-day" ||
+    backgroundConditions === "clear-sky-night"
+  ) {
+    background.style.backgroundImage = "url(images/clear-sky.jpg)";
+  }
+  if (
+    backgroundConditions === "few-clouds-day" ||
+    backgroundConditions === "few-clouds-night"
+  ) {
+    background.style.backgroundImage = "url(images/few-clouds.jpg)";
+  }
+  if (
+    backgroundConditions === "scattered-clouds-day" ||
+    backgroundConditions === "scattered-clouds-night"
+  ) {
+    background.style.backgroundImage = "url(images/scattered-clouds.jpg)";
+  }
+  if (
+    backgroundConditions === "broken-clouds-day" ||
+    backgroundConditions === "broken-clouds-night"
+  ) {
+    background.style.backgroundImage = "url(images/broken-clouds.jpg)";
+  }
+  if (
+    backgroundConditions === "shower-rain-day" ||
+    backgroundConditions === "shower-rain-night"
+  ) {
+    background.style.backgroundImage = "url(images/shower-rain.jpg)";
+  }
+  if (
+    backgroundConditions === "rain-day" ||
+    backgroundConditions === "rain-night"
+  ) {
+    background.style.backgroundImage = "url(images/light-rain.jpg)";
+  }
+  if (
+    backgroundConditions === "thunderstorm-day" ||
+    backgroundConditions === "thunderstorm-night"
+  ) {
+    background.style.backgroundImage = "url(images/thunderstorm.jpg)";
+  }
+  if (
+    backgroundConditions === "snow-day" ||
+    backgroundConditions === "snow-night"
+  ) {
+    background.style.backgroundImage = "url(images/snow.jpg)";
+  }
+  if (
+    backgroundConditions === "mist-day" ||
+    backgroundConditions === "mist-night"
+  ) {
+    background.style.backgroundImage = "url(images/mist.jpg)";
+  }
+}

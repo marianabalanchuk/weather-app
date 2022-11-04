@@ -22,7 +22,8 @@ p {
   padding: 10px 50px;
   max-width: 1000px;
   font-family: "Montagu Slab", serif;
-  background-image: url(images/background-clouds.jpg);
+  background-image: url(images/shower-rain.jpg);
+  background-size: cover;
   color: white;
 }
 
