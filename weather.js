@@ -85,7 +85,6 @@ function updateHTML(response) {
   currentHumidity.innerHTML = response.data.temperature.humidity;
 
   changeBackground(response.data.condition.icon);
-  console.log(response.data.condition.icon);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -103,31 +102,8 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
 }
 
-let apiKey = "b3eab6a64o8ab3a5f894296f5209at9d";
-let currentCity = document.querySelector("#city");
-let currentConditions = document.querySelector("#conditions");
-let currentWind = document.querySelector("#wind");
-let currentHumidity = document.querySelector("#humidity");
-let currentTemperature = document.querySelector("#current-temp");
-let celciusTemperature = null;
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", getSearchLocation);
-
-let gpsLocation = document.querySelector("#gps-location");
-gpsLocation.addEventListener("click", getPosition);
-
-navigator.geolocation.getCurrentPosition(getCurrentLocation);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
 function changeBackground(backgroundConditions) {
   let background = document.querySelector("#background");
-  console.log("helo");
 
   if (
     backgroundConditions === "clear-sky-day" ||
@@ -184,3 +160,25 @@ function changeBackground(backgroundConditions) {
     background.style.backgroundImage = "url(images/mist.jpg)";
   }
 }
+
+let apiKey = "b3eab6a64o8ab3a5f894296f5209at9d";
+let currentCity = document.querySelector("#city");
+let currentConditions = document.querySelector("#conditions");
+let currentWind = document.querySelector("#wind");
+let currentHumidity = document.querySelector("#humidity");
+let currentTemperature = document.querySelector("#current-temp");
+let celciusTemperature = null;
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", getSearchLocation);
+
+let gpsLocation = document.querySelector("#gps-location");
+gpsLocation.addEventListener("click", getPosition);
+
+navigator.geolocation.getCurrentPosition(getCurrentLocation);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
