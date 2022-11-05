@@ -211,7 +211,7 @@ function displayForecast(response) {
 }
 
 function changeBackground(backgroundConditions) {
-  let background = document.querySelector("#background");
+  let background = document.querySelector("body");
 
   if (
     backgroundConditions === "clear-sky-day" ||
