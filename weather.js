@@ -1,5 +1,3 @@
-// Calculating Date and Time
-
 function formatDate(dateNow) {
   let days = [
     "Sunday",
@@ -68,8 +66,6 @@ if (minutes < 10) {
 
 currentTime.innerHTML = `${hour}:${minutes}`;
 
-// Calculating Date and Time
-
 function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getCurrentLocation);
@@ -106,19 +102,73 @@ function updateHTML(response) {
   changeBackground(response.data.condition.icon);
 }
 
+function calculateFahrenheitTemperature(celciusTemperature) {
+  let fahrenheitTemperature = (Math.round(celciusTemperature) * 9) / 5 + 32;
+  return Math.round(fahrenheitTemperature);
+}
+
+function calculateCelsiusTemperature(fahrenheitTemperature) {
+  let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  return Math.round(celciusTemperature);
+}
+
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  currentTemperature.innerHTML = Math.round(fahrenheitTemperature);
+
+  if (isfahrenheitClicked) return;
+  currentTemperature.innerHTML =
+    calculateFahrenheitTemperature(celciusTemperature);
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+
+  let forecastMaxTemperatureArray = document.querySelectorAll(
+    ".forecastMaxTemperature"
+  );
+  let forecastMinTemperatureArray = document.querySelectorAll(
+    ".forecastMinTemperature"
+  );
+
+  forecastMaxTemperatureArray.forEach(function (forecastMaxTemperature) {
+    forecastMaxTemperature.innerHTML = calculateFahrenheitTemperature(
+      forecastMaxTemperature.innerHTML
+    );
+  });
+
+  forecastMinTemperatureArray.forEach(function (forecastMinTemperature) {
+    forecastMinTemperature.innerHTML = calculateFahrenheitTemperature(
+      forecastMinTemperature.innerHTML
+    );
+  });
+  isfahrenheitClicked = true;
 }
 
 function displayCelsiusTemperature(event) {
   event.preventDefault();
+  if (!isfahrenheitClicked) return;
   currentTemperature.innerHTML = Math.round(celciusTemperature);
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
+
+  let forecastMaxTemperatureArray = document.querySelectorAll(
+    ".forecastMaxTemperature"
+  );
+  let forecastMinTemperatureArray = document.querySelectorAll(
+    ".forecastMinTemperature"
+  );
+
+  forecastMaxTemperatureArray.forEach(function (forecastMaxTemperature) {
+    forecastMaxTemperature.innerHTML = calculateCelsiusTemperature(
+      forecastMaxTemperature.innerHTML
+    );
+  });
+
+  forecastMinTemperatureArray.forEach(function (forecastMinTemperature) {
+    forecastMinTemperature.innerHTML = calculateCelsiusTemperature(
+      forecastMinTemperature.innerHTML
+    );
+  });
+
+  isfahrenheitClicked = false;
 }
 
 function displayForecast(response) {
@@ -139,11 +189,15 @@ function displayForecast(response) {
                           forecastDay.condition.icon_url
                         } class="card-img" alt="...">
                         <div class="card-body">
-                            <p class="card-text">${Math.round(
+                            <p class="card-text">
+                            <span class="forecastMaxTemperature">${Math.round(
                               forecastDay.temperature.maximum
-                            )}° | ${Math.round(
-        forecastDay.temperature.minimum
-      )}°</p>
+                            )}</span>° 
+                            | 
+                            <span class="forecastMinTemperature">${Math.round(
+                              forecastDay.temperature.minimum
+                            )}</span>°
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -221,7 +275,9 @@ let currentConditions = document.querySelector("#conditions");
 let currentWind = document.querySelector("#wind");
 let currentHumidity = document.querySelector("#humidity");
 let currentTemperature = document.querySelector("#current-temp");
+
 let celciusTemperature = null;
+let isfahrenheitClicked = false;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSearchLocation);
